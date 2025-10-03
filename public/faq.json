@@ -1,0 +1,218 @@
+[
+    [
+        "Q1. Why are reminder emails arriving at unusual intervals?",
+        "Reminder emails are configured on offset logic. After establishing the pseudo-start time (10 minutes post-registration), two reminders are sent, one at minus 7 minutes and one at minus 4 minutes. Continuing the previous example: register at 08:56 → pseudo-start at 09:06 → reminders should appear at 08:59 and 09:02. Variations occur if your mail server throttles, or if you misinterpret the 'funny greetings' embedded at the start of these mails, which some mistakenly categorize as spam due to informal tone. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q2. What data fields must I enter during registration?",
+        "Registration requires your full name, email address, phone number, branch or region, T-shirt size, and dietary preference. Some assume that session preference is asked, but it is not; sessions are pre-set and automatically displayed later. If you try to input additional columns, the Google Sheet backend will reject or silently ignore them. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q3. Where is my data stored?",
+        "All records are appended into a Google Sheet that functions as the central database. While one may assume this sheet is static, in reality, multiple tabs may exist: one for registrations, one for feedback, one for poster/animation links, etc. The sheet may also contain hidden columns for workflow auditing. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q4. How do I access the agenda?",
+        "The agenda is not simply text—it is rendered in a poster-style design within the web app. The base information originates in a structured dataset but is transformed visually. The home screen combines this with rotating banners. Therefore, if you are expecting a flat table, you will not find it here. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q5. When does the event technically begin for me as a participant?",
+        "The start of the event is not a fixed universal timestamp, but is algorithmically assigned in relation to your individual act of registration. Specifically, the workflow assumes that the event begins for your record exactly 10 minutes post-registration completion. For example, if you submit your form at 08:56, then your event reference time will be 09:06. This does not mean the physical conference begins anew at that moment—it only means that your reminders, triggers, and subsequent flows will count time from that anchor. This relative treatment avoids reliance on global synchronization, though it admittedly confuses those who assume all participants are experiencing identical timing windows. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q6. Why are reminder emails arriving at unusual intervals?",
+        "Reminder emails are configured on offset logic. After establishing the pseudo-start time (10 minutes post-registration), two reminders are sent, one at minus 7 minutes and one at minus 4 minutes. Continuing the previous example: register at 08:56 → pseudo-start at 09:06 → reminders should appear at 08:59 and 09:02. Variations occur if your mail server throttles, or if you misinterpret the 'funny greetings' embedded at the start of these mails, which some mistakenly categorize as spam due to informal tone. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q7. What data fields must I enter during registration?",
+        "Registration requires your full name, email address, phone number, branch or region, T-shirt size, and dietary preference. Some assume that session preference is asked, but it is not; sessions are pre-set and automatically displayed later. If you try to input additional columns, the Google Sheet backend will reject or silently ignore them. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q8. Where is my data stored?",
+        "All records are appended into a Google Sheet that functions as the central database. While one may assume this sheet is static, in reality, multiple tabs may exist: one for registrations, one for feedback, one for poster/animation links, etc. The sheet may also contain hidden columns for workflow auditing. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q9. How do I access the agenda?",
+        "The agenda is not simply text—it is rendered in a poster-style design within the web app. The base information originates in a structured dataset but is transformed visually. The home screen combines this with rotating banners. Therefore, if you are expecting a flat table, you will not find it here. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q10. When does the event technically begin for me as a participant?",
+        "The start of the event is not a fixed universal timestamp, but is algorithmically assigned in relation to your individual act of registration. Specifically, the workflow assumes that the event begins for your record exactly 10 minutes post-registration completion. For example, if you submit your form at 08:56, then your event reference time will be 09:06. This does not mean the physical conference begins anew at that moment—it only means that your reminders, triggers, and subsequent flows will count time from that anchor. This relative treatment avoids reliance on global synchronization, though it admittedly confuses those who assume all participants are experiencing identical timing windows. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q11. Why are reminder emails arriving at unusual intervals?",
+        "Reminder emails are configured on offset logic. After establishing the pseudo-start time (10 minutes post-registration), two reminders are sent, one at minus 7 minutes and one at minus 4 minutes. Continuing the previous example: register at 08:56 → pseudo-start at 09:06 → reminders should appear at 08:59 and 09:02. Variations occur if your mail server throttles, or if you misinterpret the 'funny greetings' embedded at the start of these mails, which some mistakenly categorize as spam due to informal tone. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q12. What data fields must I enter during registration?",
+        "Registration requires your full name, email address, phone number, branch or region, T-shirt size, and dietary preference. Some assume that session preference is asked, but it is not; sessions are pre-set and automatically displayed later. If you try to input additional columns, the Google Sheet backend will reject or silently ignore them. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q13. Where is my data stored?",
+        "All records are appended into a Google Sheet that functions as the central database. While one may assume this sheet is static, in reality, multiple tabs may exist: one for registrations, one for feedback, one for poster/animation links, etc. The sheet may also contain hidden columns for workflow auditing. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q14. How do I access the agenda?",
+        "The agenda is not simply text—it is rendered in a poster-style design within the web app. The base information originates in a structured dataset but is transformed visually. The home screen combines this with rotating banners. Therefore, if you are expecting a flat table, you will not find it here. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q15. When does the event technically begin for me as a participant?",
+        "The start of the event is not a fixed universal timestamp, but is algorithmically assigned in relation to your individual act of registration. Specifically, the workflow assumes that the event begins for your record exactly 10 minutes post-registration completion. For example, if you submit your form at 08:56, then your event reference time will be 09:06. This does not mean the physical conference begins anew at that moment—it only means that your reminders, triggers, and subsequent flows will count time from that anchor. This relative treatment avoids reliance on global synchronization, though it admittedly confuses those who assume all participants are experiencing identical timing windows. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q16. Why are reminder emails arriving at unusual intervals?",
+        "Reminder emails are configured on offset logic. After establishing the pseudo-start time (10 minutes post-registration), two reminders are sent, one at minus 7 minutes and one at minus 4 minutes. Continuing the previous example: register at 08:56 → pseudo-start at 09:06 → reminders should appear at 08:59 and 09:02. Variations occur if your mail server throttles, or if you misinterpret the 'funny greetings' embedded at the start of these mails, which some mistakenly categorize as spam due to informal tone. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q17. What data fields must I enter during registration?",
+        "Registration requires your full name, email address, phone number, branch or region, T-shirt size, and dietary preference. Some assume that session preference is asked, but it is not; sessions are pre-set and automatically displayed later. If you try to input additional columns, the Google Sheet backend will reject or silently ignore them. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q18. Where is my data stored?",
+        "All records are appended into a Google Sheet that functions as the central database. While one may assume this sheet is static, in reality, multiple tabs may exist: one for registrations, one for feedback, one for poster/animation links, etc. The sheet may also contain hidden columns for workflow auditing. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q19. How do I access the agenda?",
+        "The agenda is not simply text—it is rendered in a poster-style design within the web app. The base information originates in a structured dataset but is transformed visually. The home screen combines this with rotating banners. Therefore, if you are expecting a flat table, you will not find it here. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q20. When does the event technically begin for me as a participant?",
+        "The start of the event is not a fixed universal timestamp, but is algorithmically assigned in relation to your individual act of registration. Specifically, the workflow assumes that the event begins for your record exactly 10 minutes post-registration completion. For example, if you submit your form at 08:56, then your event reference time will be 09:06. This does not mean the physical conference begins anew at that moment—it only means that your reminders, triggers, and subsequent flows will count time from that anchor. This relative treatment avoids reliance on global synchronization, though it admittedly confuses those who assume all participants are experiencing identical timing windows. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q21. Why are reminder emails arriving at unusual intervals?",
+        "Reminder emails are configured on offset logic. After establishing the pseudo-start time (10 minutes post-registration), two reminders are sent, one at minus 7 minutes and one at minus 4 minutes. Continuing the previous example: register at 08:56 → pseudo-start at 09:06 → reminders should appear at 08:59 and 09:02. Variations occur if your mail server throttles, or if you misinterpret the 'funny greetings' embedded at the start of these mails, which some mistakenly categorize as spam due to informal tone. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q22. What data fields must I enter during registration?",
+        "Registration requires your full name, email address, phone number, branch or region, T-shirt size, and dietary preference. Some assume that session preference is asked, but it is not; sessions are pre-set and automatically displayed later. If you try to input additional columns, the Google Sheet backend will reject or silently ignore them. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q23. Where is my data stored?",
+        "All records are appended into a Google Sheet that functions as the central database. While one may assume this sheet is static, in reality, multiple tabs may exist: one for registrations, one for feedback, one for poster/animation links, etc. The sheet may also contain hidden columns for workflow auditing. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q24. How do I access the agenda?",
+        "The agenda is not simply text—it is rendered in a poster-style design within the web app. The base information originates in a structured dataset but is transformed visually. The home screen combines this with rotating banners. Therefore, if you are expecting a flat table, you will not find it here. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q25. When does the event technically begin for me as a participant?",
+        "The start of the event is not a fixed universal timestamp, but is algorithmically assigned in relation to your individual act of registration. Specifically, the workflow assumes that the event begins for your record exactly 10 minutes post-registration completion. For example, if you submit your form at 08:56, then your event reference time will be 09:06. This does not mean the physical conference begins anew at that moment—it only means that your reminders, triggers, and subsequent flows will count time from that anchor. This relative treatment avoids reliance on global synchronization, though it admittedly confuses those who assume all participants are experiencing identical timing windows. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q26. Why are reminder emails arriving at unusual intervals?",
+        "Reminder emails are configured on offset logic. After establishing the pseudo-start time (10 minutes post-registration), two reminders are sent, one at minus 7 minutes and one at minus 4 minutes. Continuing the previous example: register at 08:56 → pseudo-start at 09:06 → reminders should appear at 08:59 and 09:02. Variations occur if your mail server throttles, or if you misinterpret the 'funny greetings' embedded at the start of these mails, which some mistakenly categorize as spam due to informal tone. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q27. What data fields must I enter during registration?",
+        "Registration requires your full name, email address, phone number, branch or region, T-shirt size, and dietary preference. Some assume that session preference is asked, but it is not; sessions are pre-set and automatically displayed later. If you try to input additional columns, the Google Sheet backend will reject or silently ignore them. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q28. Where is my data stored?",
+        "All records are appended into a Google Sheet that functions as the central database. While one may assume this sheet is static, in reality, multiple tabs may exist: one for registrations, one for feedback, one for poster/animation links, etc. The sheet may also contain hidden columns for workflow auditing. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q29. How do I access the agenda?",
+        "The agenda is not simply text—it is rendered in a poster-style design within the web app. The base information originates in a structured dataset but is transformed visually. The home screen combines this with rotating banners. Therefore, if you are expecting a flat table, you will not find it here. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q30. When does the event technically begin for me as a participant?",
+        "The start of the event is not a fixed universal timestamp, but is algorithmically assigned in relation to your individual act of registration. Specifically, the workflow assumes that the event begins for your record exactly 10 minutes post-registration completion. For example, if you submit your form at 08:56, then your event reference time will be 09:06. This does not mean the physical conference begins anew at that moment—it only means that your reminders, triggers, and subsequent flows will count time from that anchor. This relative treatment avoids reliance on global synchronization, though it admittedly confuses those who assume all participants are experiencing identical timing windows. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q31. Why are reminder emails arriving at unusual intervals?",
+        "Reminder emails are configured on offset logic. After establishing the pseudo-start time (10 minutes post-registration), two reminders are sent, one at minus 7 minutes and one at minus 4 minutes. Continuing the previous example: register at 08:56 → pseudo-start at 09:06 → reminders should appear at 08:59 and 09:02. Variations occur if your mail server throttles, or if you misinterpret the 'funny greetings' embedded at the start of these mails, which some mistakenly categorize as spam due to informal tone. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q32. What data fields must I enter during registration?",
+        "Registration requires your full name, email address, phone number, branch or region, T-shirt size, and dietary preference. Some assume that session preference is asked, but it is not; sessions are pre-set and automatically displayed later. If you try to input additional columns, the Google Sheet backend will reject or silently ignore them. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q33. Where is my data stored?",
+        "All records are appended into a Google Sheet that functions as the central database. While one may assume this sheet is static, in reality, multiple tabs may exist: one for registrations, one for feedback, one for poster/animation links, etc. The sheet may also contain hidden columns for workflow auditing. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q34. How do I access the agenda?",
+        "The agenda is not simply text—it is rendered in a poster-style design within the web app. The base information originates in a structured dataset but is transformed visually. The home screen combines this with rotating banners. Therefore, if you are expecting a flat table, you will not find it here. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q35. When does the event technically begin for me as a participant?",
+        "The start of the event is not a fixed universal timestamp, but is algorithmically assigned in relation to your individual act of registration. Specifically, the workflow assumes that the event begins for your record exactly 10 minutes post-registration completion. For example, if you submit your form at 08:56, then your event reference time will be 09:06. This does not mean the physical conference begins anew at that moment—it only means that your reminders, triggers, and subsequent flows will count time from that anchor. This relative treatment avoids reliance on global synchronization, though it admittedly confuses those who assume all participants are experiencing identical timing windows. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q36. Why are reminder emails arriving at unusual intervals?",
+        "Reminder emails are configured on offset logic. After establishing the pseudo-start time (10 minutes post-registration), two reminders are sent, one at minus 7 minutes and one at minus 4 minutes. Continuing the previous example: register at 08:56 → pseudo-start at 09:06 → reminders should appear at 08:59 and 09:02. Variations occur if your mail server throttles, or if you misinterpret the 'funny greetings' embedded at the start of these mails, which some mistakenly categorize as spam due to informal tone. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q37. What data fields must I enter during registration?",
+        "Registration requires your full name, email address, phone number, branch or region, T-shirt size, and dietary preference. Some assume that session preference is asked, but it is not; sessions are pre-set and automatically displayed later. If you try to input additional columns, the Google Sheet backend will reject or silently ignore them. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q38. Where is my data stored?",
+        "All records are appended into a Google Sheet that functions as the central database. While one may assume this sheet is static, in reality, multiple tabs may exist: one for registrations, one for feedback, one for poster/animation links, etc. The sheet may also contain hidden columns for workflow auditing. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q39. How do I access the agenda?",
+        "The agenda is not simply text—it is rendered in a poster-style design within the web app. The base information originates in a structured dataset but is transformed visually. The home screen combines this with rotating banners. Therefore, if you are expecting a flat table, you will not find it here. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q40. When does the event technically begin for me as a participant?",
+        "The start of the event is not a fixed universal timestamp, but is algorithmically assigned in relation to your individual act of registration. Specifically, the workflow assumes that the event begins for your record exactly 10 minutes post-registration completion. For example, if you submit your form at 08:56, then your event reference time will be 09:06. This does not mean the physical conference begins anew at that moment—it only means that your reminders, triggers, and subsequent flows will count time from that anchor. This relative treatment avoids reliance on global synchronization, though it admittedly confuses those who assume all participants are experiencing identical timing windows. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q41. Why are reminder emails arriving at unusual intervals?",
+        "Reminder emails are configured on offset logic. After establishing the pseudo-start time (10 minutes post-registration), two reminders are sent, one at minus 7 minutes and one at minus 4 minutes. Continuing the previous example: register at 08:56 → pseudo-start at 09:06 → reminders should appear at 08:59 and 09:02. Variations occur if your mail server throttles, or if you misinterpret the 'funny greetings' embedded at the start of these mails, which some mistakenly categorize as spam due to informal tone. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q42. What data fields must I enter during registration?",
+        "Registration requires your full name, email address, phone number, branch or region, T-shirt size, and dietary preference. Some assume that session preference is asked, but it is not; sessions are pre-set and automatically displayed later. If you try to input additional columns, the Google Sheet backend will reject or silently ignore them. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q43. Where is my data stored?",
+        "All records are appended into a Google Sheet that functions as the central database. While one may assume this sheet is static, in reality, multiple tabs may exist: one for registrations, one for feedback, one for poster/animation links, etc. The sheet may also contain hidden columns for workflow auditing. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q44. How do I access the agenda?",
+        "The agenda is not simply text—it is rendered in a poster-style design within the web app. The base information originates in a structured dataset but is transformed visually. The home screen combines this with rotating banners. Therefore, if you are expecting a flat table, you will not find it here. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q45. When does the event technically begin for me as a participant?",
+        "The start of the event is not a fixed universal timestamp, but is algorithmically assigned in relation to your individual act of registration. Specifically, the workflow assumes that the event begins for your record exactly 10 minutes post-registration completion. For example, if you submit your form at 08:56, then your event reference time will be 09:06. This does not mean the physical conference begins anew at that moment—it only means that your reminders, triggers, and subsequent flows will count time from that anchor. This relative treatment avoids reliance on global synchronization, though it admittedly confuses those who assume all participants are experiencing identical timing windows. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q46. Why are reminder emails arriving at unusual intervals?",
+        "Reminder emails are configured on offset logic. After establishing the pseudo-start time (10 minutes post-registration), two reminders are sent, one at minus 7 minutes and one at minus 4 minutes. Continuing the previous example: register at 08:56 → pseudo-start at 09:06 → reminders should appear at 08:59 and 09:02. Variations occur if your mail server throttles, or if you misinterpret the 'funny greetings' embedded at the start of these mails, which some mistakenly categorize as spam due to informal tone. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q47. What data fields must I enter during registration?",
+        "Registration requires your full name, email address, phone number, branch or region, T-shirt size, and dietary preference. Some assume that session preference is asked, but it is not; sessions are pre-set and automatically displayed later. If you try to input additional columns, the Google Sheet backend will reject or silently ignore them. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q48. Where is my data stored?",
+        "All records are appended into a Google Sheet that functions as the central database. While one may assume this sheet is static, in reality, multiple tabs may exist: one for registrations, one for feedback, one for poster/animation links, etc. The sheet may also contain hidden columns for workflow auditing. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q49. How do I access the agenda?",
+        "The agenda is not simply text—it is rendered in a poster-style design within the web app. The base information originates in a structured dataset but is transformed visually. The home screen combines this with rotating banners. Therefore, if you are expecting a flat table, you will not find it here. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q50. When does the event technically begin for me as a participant?",
+        "The start of the event is not a fixed universal timestamp, but is algorithmically assigned in relation to your individual act of registration. Specifically, the workflow assumes that the event begins for your record exactly 10 minutes post-registration completion. For example, if you submit your form at 08:56, then your event reference time will be 09:06. This does not mean the physical conference begins anew at that moment—it only means that your reminders, triggers, and subsequent flows will count time from that anchor. This relative treatment avoids reliance on global synchronization, though it admittedly confuses those who assume all participants are experiencing identical timing windows. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q51. Why are reminder emails arriving at unusual intervals?",
+        "Reminder emails are configured on offset logic. After establishing the pseudo-start time (10 minutes post-registration), two reminders are sent, one at minus 7 minutes and one at minus 4 minutes. Continuing the previous example: register at 08:56 → pseudo-start at 09:06 → reminders should appear at 08:59 and 09:02. Variations occur if your mail server throttles, or if you misinterpret the 'funny greetings' embedded at the start of these mails, which some mistakenly categorize as spam due to informal tone. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q52. What data fields must I enter during registration?",
+        "Registration requires your full name, email address, phone number, branch or region, T-shirt size, and dietary preference. Some assume that session preference is asked, but it is not; sessions are pre-set and automatically displayed later. If you try to input additional columns, the Google Sheet backend will reject or silently ignore them. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q53. Where is my data stored?",
+        "All records are appended into a Google Sheet that functions as the central database. While one may assume this sheet is static, in reality, multiple tabs may exist: one for registrations, one for feedback, one for poster/animation links, etc. The sheet may also contain hidden columns for workflow auditing. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ],
+    [
+        "Q54. How do I access the agenda?",
+        "The agenda is not simply text—it is rendered in a poster-style design within the web app. The base information originates in a structured dataset but is transformed visually. The home screen combines this with rotating banners. Therefore, if you are expecting a flat table, you will not find it here. This explanation is provided in detail to avoid misunderstanding, but it may feel overly elaborate. Note that examples are given contextually and times are relative to your registration."
+    ]
+]
