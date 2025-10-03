@@ -1,12 +1,21 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(request: Request, { params }: { params: { id: string } }) {
-  const { id } = await params;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function GET(request: NextRequest, context: any) {
+  const id = context?.params?.id;
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_N8N_GET_REGISTRATION_DATA_WEBHOOK_URL}?registration_id=${id}`, {
+    const webhookUrl = `${process.env.NEXT_PUBLIC_N8N_GET_REGISTRATION_DATA_WEBHOOK_URL}?registration_id=${id}`;
+    const apiKey = process.env.N8N_API_KEY;
+
+    if (!process.env.NEXT_PUBLIC_N8N_GET_REGISTRATION_DATA_WEBHOOK_URL || !apiKey) {
+      console.error('N8N_GET_REGISTRATION_DATA_WEBHOOK_URL or N8N_API_KEY is not defined');
+      return new NextResponse('Server configuration error', { status: 500 });
+    }
+
+    const response = await fetch(webhookUrl, {
       headers: {
-        'X-API-Key': process.env.N8N_API_KEY,
+        'X-API-Key': apiKey,
       },
     });
     if (!response.ok) {
@@ -17,8 +26,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
     const data = await response.json();
 
     return NextResponse.json(data);
-  } catch (error) {
+  } catch {
     return new NextResponse('Internal Server Error', { status: 500 });
   }
-  return NextResponse.json({});
 }

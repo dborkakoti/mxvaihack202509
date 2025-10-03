@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react';
 
 const FaqPage = () => {
-  const [faqData, setFaqData] = useState([]);
+  const [faqData, setFaqData] = useState<[string, string][]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchFaq = async () => {
@@ -17,7 +17,11 @@ const FaqPage = () => {
         const data = await response.json();
         setFaqData(data);
       } catch (err) {
-        setError(err.message);
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError('An unknown error occurred');
+        }
       } finally {
         setLoading(false);
       }

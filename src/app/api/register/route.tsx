@@ -7,11 +7,17 @@ export async function POST(request: Request) {
   console.log(JSON.stringify(process.env.N8N_API_KEY))
   console.log(JSON.stringify(body))
   try {
-    const response = await fetch(process.env.NEXT_PUBLIC_N8N_REGISTER_WEBHOOK_URL, {
+    const webhookUrl = process.env.NEXT_PUBLIC_N8N_REGISTER_WEBHOOK_URL;
+    const apiKey = process.env.N8N_API_KEY;
+    if (!webhookUrl || !apiKey) {
+      console.error('N8N_REGISTER_WEBHOOK_URL or N8N_API_KEY is not defined');
+      return new NextResponse('Server configuration error', { status: 500 });
+    }
+    const response = await fetch(webhookUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-API-Key': process.env.N8N_API_KEY,
+        'X-API-Key': apiKey,
       },
       body: JSON.stringify(body),
     });
@@ -25,7 +31,7 @@ export async function POST(request: Request) {
     const data = await response.json();
     console.log(JSON.stringify(data))
     return NextResponse.json(data);
-  } catch (error) {
+  } catch {
     return new NextResponse('Internal Server Error', { status: 500 });
   }
 }

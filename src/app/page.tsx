@@ -7,7 +7,7 @@ import Agenda from '@/components/ui/agenda';
 import Carousel from '@/components/ui/carousel';
 
 const Home = () => {
-  const [registrationId, setRegistrationId] = useState(null);
+  const [registrationId, setRegistrationId] = useState<string | null>(null);
   const [registration, setRegistration] = useState(null);
   const [summaryAvailable, setSummaryAvailable] = useState(false);
 

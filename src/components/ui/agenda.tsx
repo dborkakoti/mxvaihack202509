@@ -2,16 +2,25 @@
 
 import { useState, useEffect } from 'react';
 
-const Agenda = ({ registrationTime }) => {
-  const [agenda, setAgenda] = useState([]);
+const generalAgenda = [
+  { time: 'Morning', description: 'Keynote: Winning the Market in 2025' },
+  { time: 'Morning', description: 'Workshop: Digital Tools for Smarter Selling' },
+  { time: 'Mid-day', description: 'Panel: Customer-Centric Sales Strategies' },
+  { time: 'Afternoon', description: 'Session: Data-Driven Prospecting and Pipeline Building' },
+  { time: 'Evening', description: 'Closing Session: Celebrating Success and Growth Stories' },
+];
 
-  const generalAgenda = [
-    { time: 'Morning', description: 'Keynote: Winning the Market in 2025' },
-    { time: 'Morning', description: 'Workshop: Digital Tools for Smarter Selling' },
-    { time: 'Mid-day', description: 'Panel: Customer-Centric Sales Strategies' },
-    { time: 'Afternoon', description: 'Session: Data-Driven Prospecting and Pipeline Building' },
-    { time: 'Evening', description: 'Closing Session: Celebrating Success and Growth Stories' },
-  ];
+interface AgendaProps {
+  registrationTime: Date | null;
+}
+
+interface AgendaItem {
+  time: string;
+  description: string;
+}
+
+const Agenda = ({ registrationTime }: AgendaProps) => {
+  const [agenda, setAgenda] = useState<AgendaItem[]>([]);
 
   useEffect(() => {
     if (registrationTime) {

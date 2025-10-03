@@ -1,8 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { RegistrationRecord } from '@/lib/types';
 
-const RegistrationForm = ({ onSuccess }) => {
+interface RegistrationFormProps {
+    onSuccess: (data: RegistrationRecord) => void;
+}
+
+const RegistrationForm = ({ onSuccess }: RegistrationFormProps) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,13 +16,13 @@ const RegistrationForm = ({ onSuccess }) => {
     tshirt_size: '',
     dietary: '',
   });
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [submitting, setSubmitting] = useState(false);
-  const [submissionError, setSubmissionError] = useState(null);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
   const [toast, setToast] = useState({ show: false, message: '' });
 
   const validate = () => {
-    let tempErrors = {};
+    const tempErrors: { [key: string]: string } = {};
     if (!formData.name) tempErrors.name = 'Name is required';
     if (!formData.email) {
       tempErrors.email = 'Email is required';
@@ -35,7 +40,7 @@ const RegistrationForm = ({ onSuccess }) => {
     return Object.keys(tempErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
@@ -52,7 +57,7 @@ const RegistrationForm = ({ onSuccess }) => {
         throw new Error('Registration failed');
       }
 
-      const result = await response.json();
+      const result: RegistrationRecord = await response.json();
       if (result) {
         localStorage.setItem('registration_id', result.id);
         localStorage.setItem('registration_record', JSON.stringify(result));
@@ -65,7 +70,11 @@ const RegistrationForm = ({ onSuccess }) => {
       }
 
     } catch (error) {
-      setSubmissionError(error.message);
+        if (error instanceof Error) {
+            setSubmissionError(error.message);
+        } else {
+            setSubmissionError('An unknown error occurred');
+        }
       setToast({ show: true, message: 'Registration failed!' });
       setTimeout(() => setToast({ show: false, message: '' }), 3000);
     } finally {
@@ -73,7 +82,7 @@ const RegistrationForm = ({ onSuccess }) => {
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -110,7 +119,7 @@ const RegistrationForm = ({ onSuccess }) => {
           <option value="L">L</option>
           <option value="XL">XL</option>
         </select>
-        {errors.tshirt_size && <p className="mt-2 text-sm text-red-600">{errors.tshirt_size}</p>}
+        {errors.tshirt__size && <p className="mt-2 text-sm text-red-600">{errors.tshirt_size}</p>}
       </div>
       <div>
         <label htmlFor="dietary" className="block text-sm font-medium text-gray-700">Dietary Preferences</label>
