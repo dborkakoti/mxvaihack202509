@@ -3,3 +3,4 @@ donotshare
 .next
 
 .env.local
+.vercel

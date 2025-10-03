@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Button } from "@/components/ui/button";
 import { RegistrationRecord } from '@/lib/types';
+import Image from 'next/image';
 
 interface PosterViewerProps {
   registrationId: string;
@@ -84,7 +85,7 @@ const PosterViewer = ({ registrationId }: PosterViewerProps) => {
       {posterUrl && (
         <div className="space-y-4">
           <h3 className="text-xl font-semibold">Your Poster</h3>
-          <img src={posterUrl} alt={`Vintage Bollywood Poster for ${name}`} className="w-full rounded-lg" />
+          <Image src={posterUrl} alt={`Vintage Bollywood Poster for ${name}`} className="w-full rounded-lg" />
           <div className="flex space-x-2">
             <a href={posterUrl} download>
               <Button variant="outline">Download Poster</Button>

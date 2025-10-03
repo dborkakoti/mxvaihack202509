@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import PosterViewer from "@/components/ui/poster-viewer";
 import { Button } from "@/components/ui/button";
@@ -121,11 +122,7 @@ export default function PosterPage() {
         {registrationRecord?.selfie_url && (
           <div className="mb-4">
             <h2 className="text-xl font-semibold">Your Current Selfie</h2>
-            <img
-              src={registrationRecord.selfie_url}
-              alt="Your selfie"
-              className="w-32 h-32 rounded-full object-cover"
-            />
+            <Image src={registrationRecord.selfie_url} alt="Your selfie" className="w-32 h-32 rounded-full object-cover" />
           </div>
         )}
 

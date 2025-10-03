@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,7 +22,7 @@ const Carousel = () => {
                     style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                   >
                     {images.map((src, index) => (
-                      <img key={index} src={src} alt={`Carousel image ${index + 1}`} className="w-full flex-shrink-0 object-contain" />
+                      <Image key={index} src={src} alt={`Carousel image ${index + 1}`} className="w-full flex-shrink-0 object-contain" />
                     ))}
                   </div>      </div>
     </div>
