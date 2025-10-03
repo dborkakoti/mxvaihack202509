@@ -1,109 +1,64 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Button } from "@/components/ui/button";
-import { Upload } from 'lucide-react';
-import Uploader from './uploader';
+import { RegistrationRecord } from '@/lib/types';
 
-const PosterViewer = ({ registrationId }) => {
-  const [posterUrl, setPosterUrl] = useState<string | null>(null);
-  const [posterVideoUrl, setPosterVideoUrl] = useState<string | null>(null);
-  const [name, setName] = useState<string | null>(null);
-  const [generating, setGenerating] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+interface PosterViewerProps {
+  registrationId: string;
+}
+
+const PosterViewer = ({ registrationId }: PosterViewerProps) => {
+  const [record, setRecord] = useState<RegistrationRecord | null>(null);
+  const [isPolling, setIsPolling] = useState(false);
   const pollingInterval = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    const checkPoster = () => {
-      const storedRegistrationRecord = localStorage.getItem("registration_record");
-      if (storedRegistrationRecord) {
-        const record = JSON.parse(storedRegistrationRecord);
-        setName(record.name);
-        if (record.poster_url) {
-          setPosterUrl(record.poster_url);
+  const fetchRegistrationRecord = useCallback(async () => {
+    try {
+      const res = await fetch(`/api/registration/${registrationId}`);
+      if (res.ok) {
+        const data = await res.json();
+        localStorage.setItem("registration_record", JSON.stringify(data));
+        setRecord(data);
+
+        if (data.selfie_url && !data.poster_url) {
+            setIsPolling(true);
+        }
+
+        if (data.poster_url) {
+          setIsPolling(false);
           if (pollingInterval.current) {
             clearInterval(pollingInterval.current);
-            setGenerating(false);
           }
         }
-        if (record.poster_video_url) {
-          setPosterVideoUrl(record.poster_video_url);
+      }
+    } catch (error) {
+      console.error("Failed to fetch registration record", error);
+    }
+  }, [registrationId]);
+
+  useEffect(() => {
+    const storedRecord = localStorage.getItem("registration_record");
+    if (storedRecord) {
+        const parsedRecord: RegistrationRecord = JSON.parse(storedRecord);
+        setRecord(parsedRecord);
+        if(parsedRecord.selfie_url && !parsedRecord.poster_url) {
+            setIsPolling(true);
         }
+    }
+
+    fetchRegistrationRecord();
+
+    const interval = setInterval(fetchRegistrationRecord, 5000);
+    pollingInterval.current = interval;
+
+    return () => {
+      if (pollingInterval.current) {
+        clearInterval(pollingInterval.current);
       }
     };
+  }, [registrationId, fetchRegistrationRecord]);
 
-    checkPoster();
-    const interval = setInterval(checkPoster, 5000); // Periodically check for updates
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const onUploaded = (result: { selfie_url: string, poster_url: string }) => {
-    const existing = JSON.parse(localStorage.getItem("registration_record") || "{}")
-    const new_value = JSON.stringify({ ...existing, ...result })
-    localStorage.setItem("registration_record", new_value)
-  }
-
-  const handleGeneratePoster = async () => {
-    setGenerating(true);
-    setError(null);
-
-    try {
-      const registrationRecord = JSON.parse(
-        localStorage.getItem("registration_record") || "{}"
-      );
-      const response = await fetch(
-        process.env.NEXT_PUBLIC_N8N_GENERATE_POSTER_WEBHOOK_URL!,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            registration_id: registrationId,
-            name: registrationRecord.name,
-          }),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Poster generation failed");
-      }
-
-      // Start polling for the poster
-      pollingInterval.current = setInterval(async () => {
-        try {
-          const res = await fetch(`/api/registration/${registrationId}`);
-          const data = await res.json();
-          if (data.poster_url) {
-            localStorage.setItem("registration_record", JSON.stringify(data));
-            setPosterUrl(data.poster_url);
-            if (data.poster_video_url) {
-              setPosterVideoUrl(data.poster_video_url);
-            }
-            if (pollingInterval.current) {
-              clearInterval(pollingInterval.current);
-            }
-            setGenerating(false);
-          }
-        } catch (err) {
-          // Keep polling
-        }
-      }, 5000);
-
-      setTimeout(() => {
-        if (pollingInterval.current) {
-          clearInterval(pollingInterval.current);
-          setGenerating(false);
-          setError("Poster generation timed out. Please try again.");
-        }
-      }, 180000); // 3 minutes timeout
-
-    } catch (err) {
-      setError("Poster generation failed. Please try again.");
-      setGenerating(false);
-    }
-  };
 
   const handleCopyToClipboard = (url: string) => {
     navigator.clipboard.writeText(url).then(() => {
@@ -111,32 +66,24 @@ const PosterViewer = ({ registrationId }) => {
     });
   };
 
+  const name = record?.name || 'Attendee';
+  const posterUrl = record?.poster_url;
+  const posterVideoUrl = record?.poster_video_url;
+
   return (
     <div className="p-8 bg-gray-100 rounded-lg shadow-md mt-8">
-      {(posterVideoUrl || generating) && (
-        <>
-          <h2 className="text-2xl font-bold mb-4">Your Vintage Bollywood Poster</h2>
-          {generating && (
-            <div className="flex items-center space-x-2">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-              <p>Poster processing — we will notify when done</p>
-            </div>
-          )}</>
-      )}
-      {/* {error && (
-        <div className="text-red-500">
-          {error}
-          <Button variant="link" onClick={handleGeneratePoster} className="ml-2">
-            Retry
-          </Button>
+      <h2 className="text-2xl font-bold mb-4">2. Your Vintage Bollywood Poster</h2>
+
+      {isPolling && !posterUrl && (
+        <div className="flex items-center space-x-2">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+          <p>Poster processing... This may take a few minutes. The poster will appear below when ready.</p>
         </div>
       )}
-      {!posterUrl && !generating && (
-        <Button onClick={handleGeneratePoster}>Generate Poster</Button>
-      )} */}
-      {/* <Uploader registrationId={registrationId} onUploaded={onUploaded} />
+
       {posterUrl && (
         <div className="space-y-4">
+          <h3 className="text-xl font-semibold">Your Poster</h3>
           <img src={posterUrl} alt={`Vintage Bollywood Poster for ${name}`} className="w-full rounded-lg" />
           <div className="flex space-x-2">
             <a href={posterUrl} download>
@@ -145,9 +92,11 @@ const PosterViewer = ({ registrationId }) => {
             <Button variant="outline" onClick={() => handleCopyToClipboard(posterUrl)}>Share Poster</Button>
           </div>
         </div>
-      )} */}
+      )}
+
       {posterVideoUrl && (
         <div className="space-y-4 mt-8">
+          <h3 className="text-xl font-semibold">Your Animated Poster</h3>
           <video src={posterVideoUrl} controls className="w-full rounded-lg" />
           <div className="flex space-x-2">
             <a href={posterVideoUrl} download>
@@ -156,6 +105,10 @@ const PosterViewer = ({ registrationId }) => {
             <Button variant="outline" onClick={() => handleCopyToClipboard(posterVideoUrl)}>Share Video</Button>
           </div>
         </div>
+      )}
+
+      {!isPolling && !posterUrl && (
+        <p className="text-gray-500">Upload a selfie and click &apos;Generate Poster&apos; to begin.</p>
       )}
     </div>
   );
